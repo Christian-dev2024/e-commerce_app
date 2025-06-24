@@ -1,0 +1,32 @@
+.btnValidation {
+    background-color: #f8244f;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem;
+    color: #ffff;
+    transition: transform 0.3s;
+}
+
+.btnValidation:active{
+    border: #f8244f solid 0.5px;
+    border-radius: 8px;
+    padding: 0.4rem;
+    color: #f8244f;
+    background-color: #fff;
+    width: 100%;
+    transform: scaleX(0.9);
+}
+
+.btnLoader{
+    border: #f8244f solid 0.5px;
+    border-radius: 8px;
+    padding: 0.4rem;
+    color: #f8244f;
+    background-color: #fff;
+    width: 100%;
+}
+
+.title{
+    color: #f8244f;
+}
