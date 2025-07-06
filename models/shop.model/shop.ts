@@ -6,9 +6,10 @@ export const ShopSchema : Schema = new Schema<TypeShop>({
     emailShop : {type: String, required: true},
     numShop : {type: String, required: true},
     description : {type: String, required: true},
-    categorie : {type: String, required: true},
+    structure: {type: String, required: true},
     adrresse : {type: String, required: true},
-    idVendeur: {type: String, required: true},
+    logo: {type: String, required: true},
+    idVendeur: {type: String, required: true, unique: true},
     addDateshop : {type: String, default: Date.now()}
 })
 

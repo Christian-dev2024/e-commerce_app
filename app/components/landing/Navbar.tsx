@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useRedirectionStore } from '@/zustand/redirection';
 import { redirect } from '@/controllers/controller.auth/controller.redirect';
-import { useEffect } from 'react';
 
 
 function Navbar() {
@@ -23,7 +22,7 @@ function Navbar() {
             <div className="container-fluid">
                 <div className='px-lg-5 px-md-5 px-sm-5'>
                     <Link href={"/"} className='text-decoration-none'>
-                        <span className={`${styles.TextLogo} fs-3 fw-bold` }><i>Gear Boost</i></span>
+                        <i className=' fs-4 fw-bold bgTable'>GEAR BOOST</i>
                     </Link>
                 </div>
                 <div className='d-none d-lg-block d-lg-flex justify-content-center align-content-center gap-5'>
@@ -51,7 +50,7 @@ function Navbar() {
                     </div>
                     <div>
                         {/* bouton de redirection */}
-                        <button type='button' onClick={()=> redirect(router, setRedirect )} className={`${styles.btnIcons} bg-transparent`}> 
+                        <button type='button' onClick={()=> redirect(router, setRedirect )} className={`${styles.btnIcons} border-0 bg-transparent`}> 
                             <LuUserRound className={`${styles.TextLogo}`} size={24}/>
                         </button>
                     </div>

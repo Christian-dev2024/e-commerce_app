@@ -19,11 +19,11 @@ export const useProfilStore = create<ProfilStore>()(
     persist(
         (set) => ({
             profilData: null,
-            setProfilData: (newProfil : ProfilUser) => set({ profilData: newProfil }),
+            setProfilData: (newProfil: ProfilUser) => set({ profilData: newProfil }),
         }),
         {
-            name: 'profil-storage', // Clé de stockage dans localStorage
-            storage: createJSONStorage(() => localStorage) // Peut aussi être sessionStorage
+            name: 'profil-storage',
+            storage: createJSONStorage(() => localStorage)
         }
     )
 );

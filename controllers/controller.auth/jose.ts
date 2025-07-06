@@ -2,7 +2,7 @@ import { CompactEncrypt, compactDecrypt } from 'jose';
 
 import { cookies } from 'next/headers';
 import {  TypeProfilUser } from '@/types';
-import {  NextResponse } from 'next/server';
+import {  NextRequest, NextResponse } from 'next/server';
 
 //Une clé pour la sécurité
 const rawSecret = process.env.JWT_SECRET!;
@@ -43,17 +43,27 @@ export const GenerateToken = async (payload: TypeProfilUser) => {
 };
 
 // Récupérer le token
-export const GetAuthToken = async () => {
-    const token = (await cookies()).get('token')?.value || "token-vide";
+export const GetAuthToken = async (req: NextRequest) => {
 
-   // Avec une clé symétrique
-    const { plaintext: decryptedPayloadSym } = await compactDecrypt(token, secretKey);
-    const data = JSON.parse(new TextDecoder().decode(decryptedPayloadSym))
-
-    if (!data) {
+    const token = req.cookies.get('token')?.value || "token-vide";
+    if(!token || token === 'token-vide'){
         return null
     }
-    return { message: "ok", data }
+
+    try {
+        // Avec une clé symétrique
+        const { plaintext: decryptedPayloadSym } = await compactDecrypt(token, secretKey);
+        const data = JSON.parse(new TextDecoder().decode(decryptedPayloadSym))
+
+        if (!data) {
+            return null
+        }
+        return { message: "ok", data }
+    } catch (error) {
+        console.log(error, 'une erreur est survenue lors de la recupération du token')
+        return null
+    }
+    
 };
 
 // Déconnexion

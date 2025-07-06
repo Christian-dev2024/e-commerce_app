@@ -66,9 +66,26 @@ body {
   color: #fff;
 }
 
+
 .boxCover2 {
   background-image: linear-gradient(rgba(34,34,34,0.5), rgba(34,34,34,0.5)),
     url('/images/catimg6.jpg');;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #23222298;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centre verticalement */
+  align-items: center;     /* centre horizontalement */
+  text-align: center; 
+  color: #fff;
+}
+
+.boxCover3 {
+  background-image: linear-gradient(rgba(34,34,34,0.5), rgba(34,34,34,0.5)),
+    url('/images/imgConnexion.jpg');;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -124,4 +141,113 @@ body {
   justify-content: center;
   align-items: center;
   list-style: none;
+}
+
+.textInfoShop {
+  color : var(--Texttitle)
+}
+
+.sideBarStyle {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ff1343;
+}
+
+.sideBarStyle div{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 40px;
+}
+
+.sideBarStyle div Link {
+  color: #f8244f;
+}
+
+
+.sideBarSm {
+  background-color: #ff1343 !important;
+  max-width: 70px !important;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius : 10px;
+}
+
+.item {
+  height: 100px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff1343;
+  color: #fff;
+}
+
+.itemProfil {
+  background-color: #ff1343;
+  color: #fff;
+}
+
+.itemSm {
+  height: 100px;
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgTable {
+  color: #ff1343 !important;
+}
+
+.boxVue {
+  background-color: #ff1343;
+  padding: 5px;
+  border-radius: 7px;
+  border: none;
+  color: #fff;
+  transition: transform 0.3s;
+}
+
+.boxVue:active {
+  background-color: #fff ;
+  padding: 5px;
+  border: #ff1343 solid 1px;
+  border-radius: 7px;
+  color: #ff1343;
+  transform: scaleX(0.9);
+}
+
+.bgInfoProfil {
+  background-color: #ff1343;
+}
+
+.btnAdd{
+  background-color: #ff1343;
+}
+
+.bgSwiper {
+  background-color: #eaeaea;
+}
+
+.btnSell {
+  background-color: transparent;
+  border: solid #ff1343 0.5px;
+  padding: 0.2rem;
+  border-radius: 7px;
+  color: #ff1343;
+  transition: transform 0.3s;
+  font-size: 14px;
+}
+
+.btnSell:active {
+  background-color: #f8244f;
+  padding: 0.2rem;
+  color: #eaeaea;
+  transform: scaleX(0.9);
 }

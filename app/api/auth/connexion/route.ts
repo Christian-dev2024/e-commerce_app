@@ -15,14 +15,18 @@ export const POST = async(req: Request) => {
         }
 
         const user = await ProfilUserCollection.findOne({uid: uid})
-
         if(!user) {
-            return NextResponse.json({message : 'utilisateur non authentifié'})
+            return NextResponse.json({message : 'utilisateur non authentifié uid'})
+        }
+
+        const stUser = await ProfilUserCollection.findOne({statut: 'client'})
+        if(!stUser){
+            return NextResponse.json({message : 'utilisateur non authentifié client'})
         }
 
         const {nom, prenom, numero, adresse, statut} = await ProfilUserCollection.findOne({uid: uid})
 
-        const res = await GenerateToken({nom, prenom, numero, adresse, statut})
+        const res = await GenerateToken({nom, prenom, numero, adresse, statut, uid: uid })
 
         if(res ==='ok') {
             return NextResponse.json({message: 'ok'})

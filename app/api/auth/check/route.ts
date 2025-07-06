@@ -1,9 +1,9 @@
 import { GetAuthToken } from "@/controllers/controller.auth/jose"
 import { eComdb } from "@/lib/mongoDBConfig"
 import { ProfilUserCollection } from "@/models/auth.model/profil"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export const GET = async() => {
+export const GET = async(req : NextRequest) => {
     try {
 
         const db = await eComdb()
@@ -12,18 +12,22 @@ export const GET = async() => {
             return NextResponse.json({isLogin : false})
         }
 
-        const isLogin = await GetAuthToken()
-        if(!isLogin ){
+        //on recupère le token et on verifie si il est valide sinon on bloc l'accès 
+        const isLogin = await GetAuthToken(req)
+        console.log('le token avec uid', isLogin)
+        if(!isLogin?.data ){
             return NextResponse.json({isLogin : false})
         } 
 
+        // si le token est valide on verifie si les info de l'utilisateur sont présent dans la base de donnée
         const user = await ProfilUserCollection.findOne({numero: isLogin?.data.numero })
-        if(!user) {
+        if(!user.numero) {
             return NextResponse.json({isLogin : false})
         }
 
+        // on verifie son statu pour le rediriger sur la page 
         const stUser = await ProfilUserCollection.findOne({statut: isLogin?.data.statut})
-        if(stUser !== 'client'){
+        if(stUser.statut !== 'client'){
             return NextResponse.json({isLogin : false})
         }
 

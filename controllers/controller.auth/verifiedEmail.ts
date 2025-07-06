@@ -10,8 +10,6 @@ export const verifiedEmail = async( router: AppRouterInstance, profilData: Profi
     setIsload: Dispatch<SetStateAction<boolean>>) => {
     try {
 
-        console.log('donné du profil',profilData)
-
         if (!profilData) {
             router.push('/pages/auth/inscription')
             return errorToast('Les données du profil sont manquantes');
@@ -23,16 +21,16 @@ export const verifiedEmail = async( router: AppRouterInstance, profilData: Profi
 
         if(req && req.data.message === 'succes'){
             setIsload(false)
-            router.push('/pages/auth/connexion')
+            router.push('/auth/connexion')
             return sucsesToast('vous pouvez vous connectez')
 
         } else if (req.data.message === 'le profil existe déjà') {
             setIsload(false)
-            router.push('/pages/auth/connexion')
+            router.push('/auth/connexion')
             return sucsesToast('vous pouvez vous connectez')
             
         } else {
-            router.push('/pages/auth/inscription')
+            router.push('/auth/inscription')
             return errorToast('imposible de vous connecter veuillez ressayer plus tard')
         }
 

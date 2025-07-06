@@ -22,12 +22,12 @@ export const formConnexionVendeur = async(
 
         if(data.user){
             const uid = data.user.uid
-            const req = await axios.post('/api/auth/connexion', {uid})
+            const req = await axios.post('/api/auth/connexion-vendeur', {uid})
 
             if(req && req.data.message !== 'ok'){
                 return errorToast(req.data.message)
             } else {
-                return router.push('/pages/infoShop')
+                return router.push('/vendeur/infoshop')
             }
         }
         

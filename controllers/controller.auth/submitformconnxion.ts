@@ -6,7 +6,7 @@ import { auth } from '@/lib/firebaseComfig'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 
-export const submitformconnxion = async(
+export const submitformconnexion = async(
     e: FormEvent<HTMLFormElement>, formdata: TypeProfilUser, 
     setIsLoad:Dispatch<React.SetStateAction<boolean>>, setFormdata: Dispatch<React.SetStateAction<TypeProfilUser>>,
     router: ReturnType<typeof useRouter>) => {
@@ -25,9 +25,10 @@ export const submitformconnxion = async(
             const req = await axios.post('/api/auth/connexion', {uid})
 
             if(req && req.data.message !== 'ok'){
-                return errorToast(req.data.message)
+                errorToast(req.data.message)
+                return router.push('/auth/connexion')
             } else {
-                return router.push('/')
+                return router.push('/clientpage')
             }
         }
         

@@ -18,7 +18,8 @@ function FormVendeur() {
         const [isOpen, setIsOpen] = useState(false)
     return (
         <div className='container d-flex justify-content-center mx-auto row'>
-                    <form className='col-md-9 col-lg-6' onSubmit={(e)=> submitFormVendeur(e, formdata, setIsLoad, setFormData, setDataProfil )}>
+            <h3 className='text-center mb-3 mt-3 textInfoShop'>Crée votre compte vendeur</h3>
+                    <form className='col-md-9 col-lg-8' onSubmit={(e)=> submitFormVendeur(e, formdata, setIsLoad, setFormData, setDataProfil )}>
                         <div className="mb-3">
                             <label>Nom</label>
                             <input type="text" name='nom' onChange={(e)=>valueInput(e, setFormData )} className="form-control shadow-none" placeholder="Saisissez votre nom" required/>
@@ -61,7 +62,7 @@ function FormVendeur() {
                         </div>
                         
                         <div>
-                            <p className='text-center'>Vous avez déjà un compte ? <Link href={'/pages/auth/connexion-vendeur'} className='text-decoration-none'>connecter-vous</Link></p> 
+                            <p className='text-center'>Vous avez déjà un compte ? <Link href={'/auth/connexion-vendeur'} className='text-decoration-none'>connecter-vous</Link></p> 
                         </div>
                     </form>
                 </div>

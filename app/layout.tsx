@@ -1,16 +1,14 @@
-import Navbar from "./components/landing/Navbar"
 import { Ubuntu } from "next/font/google"
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './globals.css'
 import Script from "next/script"
 import LoaderPage from "@/loaderPage"
-import { usePathname } from "next/navigation"
 
 
 const ubuntu = Ubuntu({
   subsets : ['latin'],
-  weight: ['400', '700']
+  weight: ['500', '700']
 }) 
 
 

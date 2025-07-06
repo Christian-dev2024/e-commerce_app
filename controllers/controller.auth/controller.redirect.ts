@@ -5,13 +5,15 @@ export const redirect =  async(router: AppRouterInstance, setRedirect: (newDirec
     try {
         const req = await axios.get('/api/auth/check')
         const data = await req.data.isLogin
+        console.log(data)
 
+        // redirection en fonction des donn
         if(data) {
             setRedirect(true)
-            router.push('/pages/profil')
+            router.push('/clientpage')
         } else {
             setRedirect(false)
-            router.push('/pages/auth/connexion')
+            router.push('/auth/connexion')
         }
 
     } catch (error) {

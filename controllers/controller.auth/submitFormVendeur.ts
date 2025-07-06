@@ -40,7 +40,7 @@ export const submitFormVendeur = async(e : FormEvent<HTMLFormElement>, formdata:
 
                 //email de verification
                 await sendEmailVerification(user, {
-                    url: 'http://localhost:3000/pages/auth/verified'
+                    url: 'http://localhost:3000/auth/verified'
                 })
 
                 return sucsesToast('Un e-mail de confirmation vous a été envoyé.Cliquez sur le lien pour activer votre compte')

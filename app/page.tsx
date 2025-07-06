@@ -7,6 +7,9 @@ import { TextHero } from "./components/landing/textHero";
 import { CatergoriesProduits } from "./components/landing/catergories";
 import { Badges } from "./components/landing/badges";
 import Navbar from "./components/landing/Navbar";
+import { Article } from "./components/landing/newProduit";
+import { SwiperComponents } from "./components/landing/swiper";
+import { Footer } from "./components/landing/footer";
 
 
 export default function Home() {
@@ -36,7 +39,7 @@ export default function Home() {
   
   return (
     <>
-    {/* section hero */}
+    {/*  */}
     <nav>
       <Navbar/>
     </nav>
@@ -54,11 +57,20 @@ export default function Home() {
       </section>
 
       {/* section categorie */}
-      <section className="pb-3 pb-lg-5 min-vh-100 invisible" ref={secHeroRef}>
-        <div className="h-100" >
+      <section className="pb-3 pb-lg-5 min-vh-100 ">
+        <div className="mb-5 invisible" ref={secHeroRef}>
           <CatergoriesProduits/>
         </div>
+        <div className="mt-5 mb-5" >
+          <Article/>
+        </div>
+        <div className="mb-5">
+          <SwiperComponents/>
+        </div>
       </section>
+      <footer>
+        <Footer/>
+      </footer>
     </>
   );
 }

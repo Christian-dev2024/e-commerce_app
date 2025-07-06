@@ -7,7 +7,6 @@ import Link from 'next/link'
 import { TypeProfilUser } from '@/types'
 import { valueInput } from '@/controllers/controller.auth/valueInput'
 import { submitForm } from '@/controllers/controller.auth/submitForm'
-import { useRouter } from 'next/navigation'
 import { useProfilStore } from '@/zustand/proflistore'
 
 
@@ -67,7 +66,7 @@ function InscriptionForm() {
                 </div>
                 
                 <div>
-                    <p className='text-center'>Vous avez déjà un compte ? <Link href={'/pages/auth/connexion'} className='text-decoration-none'>connecter-vous</Link></p> 
+                    <p className='text-center'>Vous avez déjà un compte ? <Link href={'/auth/connexion'} className='text-decoration-none'>connecter-vous</Link></p> 
                 </div>
             </form>
         </div>

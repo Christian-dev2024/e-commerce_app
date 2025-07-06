@@ -6,8 +6,9 @@ import styles from './auth.module.css'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { valueInput } from '@/controllers/controller.auth/valueInput'
 import Link from 'next/link'
-import { submitformconnxion } from '@/controllers/controller.auth/submitformconnxion'
+import { submitformconnexion } from '@/controllers/controller.auth/submitformconnxion'
 import { useRouter } from 'next/navigation'
+import { useDataDashBoard } from '@/zustand/dataDashBoardStore'
 
 
 export const FormConnexion = () => {
@@ -18,14 +19,12 @@ export const FormConnexion = () => {
 
     const [isLoad, setIsLoad ] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-
     const router = useRouter()
-
 
     return (
         <div className='h-100'>
             <h3 className={`${styles.title} text-center`}> Connexion</h3>
-            <form className='col-md-8 col-lg-8 container' onSubmit={(e)=> submitformconnxion(e, formdata, setIsLoad, setFormdata, router)}>
+            <form className='col-md-8 col-lg-8 container' onSubmit={(e)=> submitformconnexion(e, formdata, setIsLoad, setFormdata, router)}>
                 <div className="mb-3">
                     <label>Email</label>
                     <input type="email" value={formdata.email} name='email' onChange={(e)=> valueInput(e, setFormdata)} className="form-control shadow-none" placeholder="Saisissez votre email" required/>
@@ -52,7 +51,7 @@ export const FormConnexion = () => {
                 </div>
                 
                 <div>
-                    <p className='text-center'>Vous êtes nouveau ? <Link href={'/pages/auth/inscription'} className='text-decoration-none'>créer un compte</Link></p> 
+                    <p className='text-center'>Vous êtes nouveau ? <Link href={'/auth/inscription'} className='text-decoration-none'>créer un compte</Link></p> 
                 </div>
             </form>
         </div>
