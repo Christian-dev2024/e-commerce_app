@@ -17,7 +17,7 @@ export const SideBar = () => {
 
     return (
         <>
-        <nav className='sideBarStyle border min-vh-100 d-lg-block d-none position-static'>
+        <nav className='sideBarStyle border h-100 d-lg-block d-none position-static'>
             <div>
                 <Link href={'/vendeur/dashboard'} className='text-light' 
                 data-bs-toggle="tooltip" 
@@ -42,30 +42,31 @@ export const SideBar = () => {
                     <FaClipboardList size={27}/>
                 </Link>
             </div>
-            <div className='mt-auto'>
-                <Link href={'/vendeur/dashboard/profilvendeur'} className='text-light'
-                data-bs-toggle="tooltip" 
-                data-bs-placement="right" 
-                data-bs-title="Compte">
-                    <FaUser size={27}/>
-                </Link>
-            </div>
-            <div className='mt-auto'>
-                <Link href={'/vendeur/dashboard/shop'} className='text-light'
-                data-bs-toggle="tooltip" 
-                data-bs-placement="right" 
-                data-bs-title="Boutique">
-                    <FaShop size={27}/>
-                </Link>
-            </div>
-            <div className='mt-auto'>
-                <Link href={'/vendeur/dashboard'} className='text-light'
-                data-bs-toggle="tooltip" 
-                data-bs-placement="right" 
-                data-bs-title="Deconnexion">
-                    <BiLogOut size={27}/>
-                </Link>
-            </div>
+                <div className=''>
+                    <Link href={'/vendeur/dashboard/profilvendeur'} className='text-light'
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="right" 
+                    data-bs-title="Compte">
+                        <FaUser size={27}/>
+                    </Link>
+                </div>
+                <div className=''>
+                    <Link href={'/vendeur/dashboard/shop'} className='text-light'
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="right" 
+                    data-bs-title="Boutique">
+                        <FaShop size={27}/>
+                    </Link>
+                </div>
+                <div className=''>
+                    <Link href={'/vendeur/dashboard'} className='text-light'
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="right" 
+                    data-bs-title="Deconnexion">
+                        <BiLogOut size={27}/>
+                    </Link>
+                </div>
+
         </nav>
 
 

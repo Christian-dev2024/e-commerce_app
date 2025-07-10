@@ -3,7 +3,7 @@ import React from 'react'
 function page() {
     return (
         <div>
-            je suis page profil
+            je suis la page commande
         </div>
     )
 }

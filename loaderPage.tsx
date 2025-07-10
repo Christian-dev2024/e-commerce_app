@@ -11,7 +11,7 @@ function LoaderPage({children} : {children : React.ReactNode}) {
                 autoClose={5000}
                 hideProgressBar
                 newestOnTop={false}
-                closeOnClick={false}
+                closeOnClick={true}
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
@@ -25,7 +25,7 @@ function LoaderPage({children} : {children : React.ReactNode}) {
                 autoClose={5000}
                 hideProgressBar
                 newestOnTop={false}
-                closeOnClick={false}
+                closeOnClick={true}
                 rtl={false}
                 pauseOnFocusLoss
                 draggable

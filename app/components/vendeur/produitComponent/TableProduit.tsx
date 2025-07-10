@@ -30,18 +30,52 @@ export const TableProduit = () => {
                 <table className="table table-hover table-striped border align-middle shadow">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Ref.produit</th>
-                        <th scope="col">Nom produit</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Quantité</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Statut</th>
-                        <th scope="col">Statut de vente</th>
-                        <th scope="col" className='d-flex justify-content-center'>
-                            <button type="button" className="boxVue" data-bs-toggle="modal" data-bs-target="#ModalAjoutProduit">
-                                ajouter un produit
-                            </button>
+                        <th scope="col">
+                            <div className='d-flex justify-content-center align-items-center'>
+                                #
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div className='d-flex justify-content-center align-items-center'>
+                                Ref.produit
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div className='d-flex justify-content-center align-items-center'>
+                                Nom produit
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div className='d-flex justify-content-center align-items-center'>
+                                Prix
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div className='d-flex justify-content-center align-items-center'>
+                                Quantité
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div className='d-flex justify-content-center align-items-center'>
+                                Image
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div className='d-flex justify-content-center align-items-center'>
+                                Statut
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div className=' d-flex justify-content-center align-items-center'>
+                                Statut de vente
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div className='d-flex justify-content-center align-items-center'>
+                                <button type="button" className="boxVue" data-bs-toggle="modal" data-bs-target="#ModalAjoutProduit">
+                                    ajouter un produit
+                                </button>
+                            </div>
                         </th>
                     </tr>
                 </thead>
@@ -49,27 +83,52 @@ export const TableProduit = () => {
                     {ProduitStore && ProduitStore.length > 0 ? (
                         ProduitStore?.map((items, index)=>(
                             <tr key={index} >
-                                <th scope="row">{index + 1}</th>
-                                <td className='mt-1 mb-1'>{items?.ref_produit}</td>
-                                <td className='mt-1 mb-1'>{items?.nomProduit}</td>
-                                <td className='mt-1 mb-1'>{items?.prix_produit}</td>
-                                <td className='mt-1 mb-1'>{items?.quantite}</td>
+                                <th scope="row">
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        {index + 1}
+                                    </div>
+                                </th>
                                 <td>
-                                    <div className='position-relative overflow-hidden mt-1 mb-1 border'  style={{width: 70, height:70}}>
-                                        <Image src={items?.imageProduit || '/images/LOGO.png'} fill alt="prod" className='object-fit-cover' />
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        {items?.ref_produit}
                                     </div>
                                 </td>
                                 <td>
-                                    <span className={`badge ${
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        {items?.nomProduit}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        {items?.prix_produit}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        {items?.quantite}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        <div className='position-relative overflow-hidden border'  style={{width: 70, height:70}}>
+                                            <Image src={items?.imageProduit || '/images/LOGO.png'} fill alt="prod" className='object-fit-cover' />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        <span className={`badge ${
                                         items?.quantite === 0 ? 'bg-danger'
                                         : items?.quantite === items?.quantite! / 3 ? 'bg-warning' : 'bg-success' }`}>
 
                                         {items?.quantite === 0 ? 'Rupture'
                                         : items?.quantite === items?.quantite! / 3 ? 'Faible stock' : 'En stock'}
-                                    </span>
+                                        </span>
+                                    </div>
                                 </td>
-                                <td className='mt-1 mb-1'>
-                                    <div className='d-flex align-items-center'>
+                                <td >
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        <div className='d-flex align-items-center'>
                                         {items?.isPublished === false ? (
                                             <button
                                             type='button'
@@ -83,13 +142,16 @@ export const TableProduit = () => {
                                             <p className='text-success mt-3'>En vente</p>
                                             </div>
                                         )}
+                                        </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <div className='d-flex justify-content-center'>
-                                        <button className="bg-transparent border-0 text-warning mx-3"><LuEye /></button>
-                                        <button className="bg-transparent border-0 text-info mx-3"><LuPenLine /></button>
-                                        <button className="bg-transparent border-0 text-danger mx-3"><FaRegTrashAlt /></button>
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        <div className='d-flex justify-content-center'>
+                                            <button className="bg-transparent border-0 text-warning mx-3"><LuEye /></button>
+                                            <button className="bg-transparent border-0 text-info mx-3"><LuPenLine /></button>
+                                            <button className="bg-transparent border-0 text-danger mx-3"><FaRegTrashAlt /></button>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>

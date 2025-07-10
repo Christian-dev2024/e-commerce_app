@@ -251,3 +251,42 @@ body {
   color: #eaeaea;
   transform: scaleX(0.9);
 }
+
+
+.btnCard {
+  background-color: transparent;
+  border: solid #ff1343 0.5px;
+  padding: 0.2rem;
+  border-radius: 7px;
+  color: #ff1343;
+  transition: transform 0.3s;
+  font-size: 14px;
+}
+
+.btnCard:active {
+  background-color: #f8244f;
+  padding: 0.2rem;
+  color: #eaeaea;
+  transform: scaleX(0.9);
+}
+
+.custom-scrollbar {
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE / Edge */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;                 /* Chrome, Safari, Opera */
+}
+
+.hoversidebar{
+  color: #ff1343;
+  transition: transform 0.1s;
+}
+
+.hoversidebar:hover{
+  border-radius: 10px;
+  color: #fff;
+  background-color: #ff1343;
+  transform: scaleX(0.9);
+}

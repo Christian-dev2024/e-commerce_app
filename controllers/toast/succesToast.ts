@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Slide, toast } from 'react-toastify';
 
 export const sucsesToast = (message : string) => {

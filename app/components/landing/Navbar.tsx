@@ -27,17 +27,17 @@ function Navbar() {
                 </div>
                 <div className='d-none d-lg-block d-lg-flex justify-content-center align-content-center gap-5'>
                     <div>
-                        <Link href={"/about"} className={`${styles.btnConnect} text-dark text-decoration-none`}>
+                        <Link href={"/clientpage/about"} className={`${styles.btnConnect} text-dark text-decoration-none`}>
                             <FaUsers size={22} className='mb-1 mx-1' /> À propos
                         </Link>
                     </div>
                     <div>
-                        <Link href={"/products"} className={`${styles.btnConnect} text-dark text-decoration-none`}>
+                        <Link href={"/clientpage/articles"} className={`${styles.btnConnect} text-dark text-decoration-none`}>
                         <FaShoppingBag size={20} className='mb-2 mx-1' /> Produits
                         </Link>
                     </div>
                     <div>
-                        <Link href={"/contact"} className={`${styles.btnConnect} text-dark text-decoration-none`}>
+                        <Link href={"/clientpage/contact"} className={`${styles.btnConnect} text-dark text-decoration-none`}>
                             <FaPhone  size={18} className='mb-2 mx-1'/> Contactez-nous
                         </Link>
                     </div>
@@ -55,7 +55,7 @@ function Navbar() {
                         </button>
                     </div>
                     <div className='d-none d-lg-block'>
-                        <Link href={"/panier"} className={`${styles.btnIcons} text-decoration-none`}> 
+                        <Link href={"/clientpage/panier"} className={`${styles.btnIcons} text-decoration-none`}> 
                             <LuShoppingCart className={`${styles.TextLogo}`} size={24} />
                         </Link>
                     </div>
@@ -79,23 +79,23 @@ function Navbar() {
                     </div>
                     <div className="offcanvas-body d-flex flex-column">
                         <div className='py-3 d-flex align-items-center'>
-                            <Link href={"/about"} className={`${styles.btnConnect} text-light text-decoration-none`}>
+                            <Link href={"/clientpage/about"} className={`${styles.btnConnect} text-light text-decoration-none`}>
                                 <FaUsers size={24} className='mb-1 mx-1' />  À propos de nous
                             </Link>
                         </div>
                         <div className='py-3  d-flex align-items-center'>
-                            <Link href={"/products"} className={`${styles.btnConnect} text-light text-decoration-none`}>
+                            <Link href={"/clientpage/articles"} className={`${styles.btnConnect} text-light text-decoration-none`}>
                                 <FaShoppingBag size={24} className='mb-1 mx-1' /> Catégories produits
                             </Link>
                         </div>
                         <div className='py-3'>
-                            <Link href={"/contact"} className={`${styles.btnConnect} text-light text-decoration-none`}>
+                            <Link href={"/clientpage/contact"} className={`${styles.btnConnect} text-light text-decoration-none`}>
                                 <FaPhone  size={24} className='mb-1 mx-1'/> Contactez-nous
                             </Link>
                         </div>
 
                         <div className='py-3'>
-                            <Link href={"/panier"} className={`${styles.btnIcons} text-light text-decoration-none`}> 
+                            <Link href={"/clientpage/panier"} className={`${styles.btnIcons} text-light text-decoration-none`}> 
                                 <LuShoppingCart className='mb-1 mx-1' size={24} /> panier
                             </Link>
                         </div>

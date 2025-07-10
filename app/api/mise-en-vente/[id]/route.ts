@@ -3,16 +3,14 @@ import { eComdb } from "@/lib/mongoDBConfig";
 import { ProduitCollection } from "@/models/produit.model/produit";
 import { NextRequest, NextResponse } from "next/server";
 
-export const PUT = async (req: NextRequest, { params }: { params : {id : string} }) => {
+export const PUT = async (req: NextRequest, {params} : { params : Promise <{id : string}> }) => {
     try {
-        const {id} = await params
-
-        console.log(id, 'id reçu')
-
-        const db = await eComdb()
+            const db = await eComdb()
             if(db !== 'ok'){
                 return NextResponse.json({message: 'une est survenue veuillez verifier votre connexion internet'})
             }
+
+            const { id }  = await params
 
             const USER_VENDEUR_TOKEN = await GetAuthToken(req)
                     
@@ -28,7 +26,7 @@ export const PUT = async (req: NextRequest, { params }: { params : {id : string}
             if (STATUT_TOKEN !== 'vendeur'){
                 return NextResponse.json({message: 'statut non admissible' })
             }
-                    
+            
             // on recupere l'uid de venedeur
             const UID_TOKEN = await USER_VENDEUR_TOKEN.data.uid
                             
