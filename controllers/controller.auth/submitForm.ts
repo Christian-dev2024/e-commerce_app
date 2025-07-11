@@ -36,13 +36,15 @@ export const submitForm = async(e : FormEvent<HTMLFormElement>, formdata: TypePr
                     uid: user.uid
                 }
 
+                console.log(dataProfil)
                 setDataProfil(dataProfil)
 
             if(user) {
 
                 //email de verification
                 await sendEmailVerification(user, {
-                    url: 'https://application-e-commerce-rose-theta.vercel.app/auth/verified'
+                    url: 'https://e-commerce-app-rose-theta.vercel.app/auth/verified',
+                    handleCodeInApp: true
                 })
 
                 return sucsesToast('Un e-mail de confirmation vous a été envoyé.Cliquez sur le lien pour activer votre compte')
