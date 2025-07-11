@@ -20,19 +20,40 @@ function page() {
 
     const router = useRouter()
     
-    useEffect(()=> {
+    useEffect(() => {
+        const checkUser = async () => {
+            const unsubscribe = onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    await user.reload() 
 
-        const verified = onAuthStateChanged(auth, (user)=>{
+                    if (user.emailVerified) {
+                        verifiedEmail(router, profilData, setIsLoad);
+                    } else {
+                        errorToast("Email non vérifié.");
+                        setIsLoad(false);
+                        router.push('/auth/inscription');
+                    }
+                } else {
+                        errorToast("Utilisateur non connecté.");
+                        setIsLoad(false);
+                        router.push('/auth/inscription');
+                    }
+                    });
 
-            if (user && user.emailVerified) {
-                verifiedEmail(router, profilData, setIsLoad )
-            } else {
-                errorToast("Utilisateur non connecté ou email non vérifié.")
-            }
-        })
+                    // nettoyage
+                    return unsubscribe;
+                };
 
-        return () => verified()
-    }, [router, profilData])
+                const unsubscribePromise = checkUser();
+
+                // React ne supporte pas de return async dans useEffect, donc nettoyage indirect
+            return () => {
+                    unsubscribePromise.then((unsubscribe) => {
+                    if (typeof unsubscribe === 'function') unsubscribe();
+                    });
+                };
+            }, [router, profilData]);
+
 
 
     return (

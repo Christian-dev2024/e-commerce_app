@@ -1,7 +1,6 @@
 import { GetAuthToken } from "@/controllers/controller.auth/jose"
 import { eComdb } from "@/lib/mongoDBConfig"
 import { ProfilUserCollection } from "@/models/auth.model/profil"
-import { redirect } from "next/dist/server/api-utils"
 import { NextRequest, NextResponse } from "next/server"
 
 export const GET = async(req : NextRequest) => {

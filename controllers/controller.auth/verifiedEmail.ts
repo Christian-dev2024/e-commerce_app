@@ -11,7 +11,7 @@ export const verifiedEmail = async( router: AppRouterInstance, profilData: Profi
     try {
 
         if (!profilData) {
-            router.push('/pages/auth/inscription')
+            router.push('/auth/inscription')
             return errorToast('Les données du profil sont manquantes');
         }
 
@@ -19,17 +19,16 @@ export const verifiedEmail = async( router: AppRouterInstance, profilData: Profi
 
         const req = await axios.post('/api/auth/add-user',{ nom, prenom, numero, adresse, statut, uid })
 
-        if(req && req.data.message === 'succes'){
-            setIsload(false)
-            router.push('/auth/connexion')
-            return sucsesToast('vous pouvez vous connectez')
+        if(req && req.data.message === 'succes' && req.data.statutUser === 'client'){
+            sucsesToast('vous pouvez vous connectez')
+            return router.push('/auth/connexion')
 
-        } else if (req.data.message === 'le profil existe déjà') {
-            setIsload(false)
-            router.push('/auth/connexion')
-            return sucsesToast('vous pouvez vous connectez')
+        } else if (req && req.data.message === 'succes' && req.data.statutUser === 'vendeur') {
+            sucsesToast('vous pouvez vous connectez')
+            return router.push('/auth/connexion-vendeur')
             
         } else {
+            setIsload(false)
             router.push('/auth/inscription')
             return errorToast('imposible de vous connecter veuillez ressayer plus tard')
         }
@@ -37,5 +36,7 @@ export const verifiedEmail = async( router: AppRouterInstance, profilData: Profi
     } catch (error) {
         console.log(error)
         return errorToast('une erreur est survenue')
-    } 
+    } finally {
+        setIsload(false)
+    }
 }

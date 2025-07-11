@@ -22,7 +22,7 @@ export const POST = async(req : Request) => {
             await profildata.save()
         }
 
-        return NextResponse.json({message : 'succes'})
+        return NextResponse.json({message : 'succes', statutUser : statut })
 
     } catch (error) {
         console.log(error)
