@@ -1,7 +1,7 @@
 import React, { Dispatch, FormEvent } from 'react'
 import { errorToast } from '../toast/errorToast'
 import { TypeProfilUser } from '@/types'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { auth } from '@/lib/firebaseComfig'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
@@ -18,7 +18,17 @@ export const formConnexionVendeur = async(
 
         const {email, password} = formdata
 
+        await signOut(auth) ; 
+
         const data = await signInWithEmailAndPassword(auth, email!, password!)
+
+        const user = data.user
+
+        console.log(user, 'état du user à la connexion')
+
+        if(!user?.emailVerified){
+            return errorToast('Veuillez vérifier votre email avant de vous connecter.')
+        }
 
         if(data.user){
             const uid = data.user.uid
