@@ -25,6 +25,9 @@ function page() {
 
         try {
             const user = auth.currentUser;
+
+            console.log(user, 'utilisateur en authentification')
+
             setCheker(true);
 
             if (!user) {

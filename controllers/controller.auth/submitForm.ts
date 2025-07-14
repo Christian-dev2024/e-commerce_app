@@ -43,7 +43,7 @@ export const submitForm = async(e : FormEvent<HTMLFormElement>, formdata: TypePr
 
                 //email de verification
                 await sendEmailVerification(user, {
-                    url: 'https://e-commerce-app-rose-theta.vercel.app/auth/verified',
+                    url: 'http:///e-commerce-app-rose-theta.vercel.app/auth/verifiedVendeur',
                     handleCodeInApp: true
                 })
 

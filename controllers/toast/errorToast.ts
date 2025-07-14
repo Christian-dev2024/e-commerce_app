@@ -7,7 +7,7 @@ export const errorToast = (message : string) => {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: true,
-    closeOnClick: false,
+    closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
     progress: undefined,

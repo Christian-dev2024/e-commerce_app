@@ -22,6 +22,8 @@ export const POST = async(req : Request) => {
             await profildata.save()
         }
 
+        console.log(statut, 'statut du client')
+
         return NextResponse.json({message : 'succes', statutUser : statut })
 
     } catch (error) {

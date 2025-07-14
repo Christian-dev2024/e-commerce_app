@@ -42,9 +42,8 @@ export const ListProduit = () => {
                         ))
                     ) : (
                         <>
-                        <p className='text-secondary text-center fs-3'> Aucun produit</p>
+                            <p className='text-secondary text-center fs-3'> Aucun produit</p>
                         </>
-                        
                     )}
                 </div>
             </div>

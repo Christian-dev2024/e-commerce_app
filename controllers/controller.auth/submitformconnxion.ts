@@ -38,7 +38,7 @@ export const submitformconnexion = async(
                 errorToast(req.data.message)
                 return router.push('/auth/connexion')
             } else {
-                return router.push('/clientpage')
+                return router.push('/clientpage/profil')
             }
         }
         

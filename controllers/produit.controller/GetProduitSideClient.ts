@@ -12,7 +12,7 @@ export const GetProduitSideClient = async(produitData: typeProduit[], Setproduit
             const newProduit = req.data.produitClient
             console.log(newProduit, 'tableau de produit récent')
             console
-            SetproduitData([...produitData, ...newProduit])
+            SetproduitData([ ...newProduit])
         }
     } catch (error) {
         console.log(error)

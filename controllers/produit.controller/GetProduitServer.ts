@@ -10,7 +10,7 @@ export const GetProduitServer = async(ProduitStore: typeProduit[], setProduitGet
 
             if(req.data.message === 'ok') {
 
-                const allProduit: typeProduit[] = req.data.allProduit
+                const allProduit = req.data.allProduit
 
                 console.log(allProduit, 'tous les produits du store')
 

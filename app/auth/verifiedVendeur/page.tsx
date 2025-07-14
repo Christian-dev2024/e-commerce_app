@@ -7,7 +7,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '@/lib/firebaseComfig'
 import { errorToast } from '@/controllers/toast/errorToast'
 import { FaCheckCircle } from 'react-icons/fa'
-import { verifiedEmailVendeur } from '@/controllers/controller.auth/verifiedEmailVendeur'
+import { verifiedEmail } from '@/controllers/controller.auth/verifiedEmail'
 
 
 function page() {
@@ -25,7 +25,7 @@ function page() {
         const verified = onAuthStateChanged(auth, (user)=>{
 
             if (user && user.emailVerified) {
-                verifiedEmailVendeur(router, profilData, setIsLoad )
+                verifiedEmail(router, profilData, setIsLoad )
             } else {
                 errorToast("Utilisateur non connecté ou email non vérifié.")
             }

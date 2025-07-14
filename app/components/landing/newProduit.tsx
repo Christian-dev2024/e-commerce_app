@@ -12,6 +12,10 @@ export const Article = () => {
 
     const SetproduitData = useGetProduitClient(state => state.setData)
     const produitData = useGetProduitClient( state => state.data)
+    const produit = produitData.slice(-6)
+
+    console.log(produit, 'produit récents')
+    
 
     useEffect(()=> {
         GetProduitSideClient(produitData, SetproduitData)
@@ -23,8 +27,8 @@ export const Article = () => {
 
             <div className="d-flex justify-content-center align-items-center my-5" >
                 <div className="row g-4 justify-content-center">
-                {produitData && produitData.length> 0 && (
-                    produitData.length < 9 && produitData.map((items, index)=> (
+                {produit && produit.length> 1 && (
+                    produit.map((items, index)=> (
                         <div className="col-sm-6 col-md-4 col-lg-4" key={index}>
                             <div className="card h-100 shadow-sm rouded-2" >
                                 <div className='position-relative overflow-hidden' style={{ height: '200px', objectFit: 'cover' }}>
