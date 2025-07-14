@@ -40,7 +40,7 @@ export const submitFormVendeur = async(e : FormEvent<HTMLFormElement>, formdata:
 
                 //email de verification
                 await sendEmailVerification(user, {
-                    url: 'https://application-e-commerce-phi-sooty.vercel.app/auth/verifiedVendeur'
+                    url: 'https://e-commerce-app-phi-sooty.vercel.app/auth/verifiedVendeur'
                 })
 
                 return sucsesToast('Un e-mail de confirmation vous a été envoyé.Cliquez sur le lien pour activer votre compte')

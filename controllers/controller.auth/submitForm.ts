@@ -43,7 +43,7 @@ export const submitForm = async(e : FormEvent<HTMLFormElement>, formdata: TypePr
 
                 //email de verification
                 await sendEmailVerification(user, {
-                    url: 'https://application-e-commerce-phi-sooty.vercel.app/auth/verifiedVendeur',
+                    url: 'https://e-commerce-app-phi-sooty.vercel.app/auth/verified',
                     handleCodeInApp: true
                 })
 
