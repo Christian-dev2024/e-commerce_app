@@ -19,6 +19,8 @@ export const verifiedEmail = async( router: AppRouterInstance, profilData: Profi
 
         const req = await axios.post('/api/auth/add-user',{ nom, prenom, numero, adresse, statut, uid })
 
+        console.log(req.data, 'donné du user authentifié')
+
         if(req && req.data.message === 'succes' && req.data.statutUser === 'client'){
             sucsesToast('vous pouvez vous connectez')
             return router.push('/auth/connexion')
